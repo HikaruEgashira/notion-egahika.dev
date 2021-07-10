@@ -111,14 +111,6 @@ export const api = {
 
 // ----------------------------------------------------------------------------
 
-export const fathomId = isDev ? null : process.env.NEXT_PUBLIC_FATHOM_ID
-
-export const fathomConfig = fathomId
-  ? {
-      excludedDomains: ['localhost', 'localhost:3000']
-    }
-  : undefined
-
 const defaultEnvValueForPreviewImageSupport =
   isPreviewImageSupportEnabled && isServer ? undefined : null
 
