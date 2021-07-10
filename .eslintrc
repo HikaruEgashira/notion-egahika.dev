@@ -17,6 +17,8 @@
       "files": ["**/*.js", "**/*.jsx"],
       "parser": "babel-eslint",
       "extends": [
+        "next",
+        "next/core-web-vitals",
         "standard",
         "standard-react",
         "plugin:prettier/recommended",
