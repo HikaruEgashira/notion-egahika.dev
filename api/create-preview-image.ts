@@ -7,7 +7,7 @@ import { isPreviewImageSupportEnabled } from '../lib/config'
 import * as types from '../lib/types'
 import * as db from '../lib/db'
 
-export default async (
+const apiCreatePreviewImage = async (
   req: NextApiRequest,
   res: NextApiResponse
 ): Promise<void> => {
@@ -33,6 +33,8 @@ export default async (
   )
   res.status(200).json(result)
 }
+
+export default apiCreatePreviewImage
 
 export async function createPreviewImage(
   url: string,

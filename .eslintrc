@@ -21,9 +21,7 @@
         "next/core-web-vitals",
         "standard",
         "standard-react",
-        "plugin:prettier/recommended",
-        "prettier/standard",
-        "prettier/react"
+        "prettier"
       ],
       "env": { "node": true },
       "rules": {
@@ -41,12 +39,12 @@
       "parser": "@typescript-eslint/parser",
       "plugins": ["@typescript-eslint"],
       "extends": [
+        "next",
+        "next/core-web-vitals",
         "plugin:@typescript-eslint/recommended",
         "standard",
         "standard-react",
-        "plugin:prettier/recommended",
-        "prettier/standard",
-        "prettier/react"
+        "prettier"
       ],
       "env": { "browser": true, "node": true },
       "rules": {

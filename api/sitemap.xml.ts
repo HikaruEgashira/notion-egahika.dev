@@ -4,7 +4,7 @@ import { SiteMap } from '../lib/types'
 import { host } from '../lib/config'
 import { getSiteMaps } from '../lib/get-site-maps'
 
-export default async (
+const siteMap = async (
   req: NextApiRequest,
   res: NextApiResponse
 ): Promise<void> => {
@@ -23,6 +23,8 @@ export default async (
   res.write(createSitemap(siteMaps[0]))
   res.end()
 }
+
+export default siteMap
 
 const createSitemap = (
   siteMap: SiteMap

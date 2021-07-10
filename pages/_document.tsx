@@ -1,4 +1,5 @@
 import React from 'react'
+import Script from 'next/script'
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { IconContext } from 'react-icons'
 
@@ -15,7 +16,7 @@ export default class MyDocument extends Document {
           </Head>
 
           <body>
-            <script src='noflash.js' />
+            <Script src='noflash.js' />
 
             <Main />
 

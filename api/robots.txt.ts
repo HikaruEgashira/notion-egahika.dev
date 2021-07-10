@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 
 import { host } from '../lib/config'
 
-export default async (
+const robots = async (
   req: NextApiRequest,
   res: NextApiResponse
 ): Promise<void> => {
@@ -21,3 +21,5 @@ Sitemap: ${host}/api/sitemap.xml
 `)
   res.end()
 }
+
+export default robots

@@ -192,6 +192,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
           pageId === site.rootNotionPageId && 'index-page'
         )}
         components={{
+          // eslint-disable-next-line react/display-name
           pageLink: ({
             href,
             as,
