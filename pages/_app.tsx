@@ -32,11 +32,6 @@ import 'prismjs/components/prism-typescript'
 import 'prismjs/components/prism-bash'
 
 import React from 'react'
-import { bootstrap } from 'lib/bootstrap-client'
-
-if (typeof window !== 'undefined') {
-  bootstrap()
-}
 
 export default function App({ Component, pageProps }) {
   return <Component {...pageProps} />
