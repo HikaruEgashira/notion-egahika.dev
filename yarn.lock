@@ -3483,7 +3483,12 @@ notion-client@4.7.6:
     notion-utils "^4.7.6"
     p-map "^4.0.0"
 
-notion-types@4.7.6, notion-types@^4.7.6:
+notion-types@4.8.2:
+  version "4.8.2"
+  resolved "https://registry.yarnpkg.com/notion-types/-/notion-types-4.8.2.tgz#b7b1182a595f1a526c3617578874667cdf7e52fe"
+  integrity sha512-WfmEv/3hgHkXtmmAL2rlS9i7MAdc2pIJZGoeqi8GnBK58XMW6zgkNFjrUBXJtaDiOjQ6nfVE/yepTj79LGhERw==
+
+notion-types@^4.7.6:
   version "4.7.6"
   resolved "https://registry.yarnpkg.com/notion-types/-/notion-types-4.7.6.tgz#4ed4a9d25c329aa32f8714d0eb67cf1b14af0278"
   integrity sha512-YFPDcKRpokoxK/RjP5P/+UeUbYSmt5+KlLAPPZl+MDxuzeKOqtt6NJIZfng4ji3BI/e0t/m7eA0EfAw6d2U37w==
