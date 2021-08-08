@@ -8,7 +8,10 @@ import { getPage } from './notion'
 import { getSiteMaps } from './get-site-maps'
 import { getSiteForDomain } from './get-site-for-domain'
 
-export async function resolveNotionPage(domain: string, rawPageId?: string) {
+export const resolveNotionPage = async (
+  domain: string,
+  rawPageId?: string
+): Promise<types.PageProps> => {
   let site: types.Site
   let pageId: string
   let recordMap: ExtendedRecordMap
@@ -28,18 +31,14 @@ export async function resolveNotionPage(domain: string, rawPageId?: string) {
     }
 
     if (pageId) {
-      const resources = await Promise.all([
+      ;[site, recordMap] = await Promise.all([
         getSiteForDomain(domain),
         getPage(pageId)
       ])
-
-      site = resources[0]
-      recordMap = resources[1]
     } else {
       // handle mapping of user-friendly canonical page paths to Notion page IDs
       // e.g., /developer-x-entrepreneur versus /71201624b204481f862630ea25ce62fe
-      const siteMaps = await getSiteMaps()
-      const siteMap = siteMaps[0]
+      const siteMap = (await getSiteMaps())[0]
       pageId = siteMap?.canonicalPageMap[rawPageId]
 
       if (pageId) {
@@ -67,11 +66,9 @@ export async function resolveNotionPage(domain: string, rawPageId?: string) {
   } else {
     site = await getSiteForDomain(domain)
     pageId = site.rootNotionPageId
-
-    console.log(site)
     recordMap = await getPage(pageId)
   }
 
   const props = { site, recordMap, pageId }
-  return { ...props, ...(await acl.pageAcl(props)) }
+  return { ...props, ...acl.pageAcl(props) }
 }

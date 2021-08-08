@@ -4,7 +4,7 @@ import { getAllPages } from './get-all-pages'
 import { getSites } from './get-sites'
 import * as types from './types'
 
-export async function getSiteMaps(): Promise<types.SiteMap[]> {
+export const getSiteMaps = async (): Promise<types.SiteMap[]> => {
   const sites = await getSites()
 
   const siteMaps = await pMap(

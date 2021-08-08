@@ -7,7 +7,7 @@ export const notion = new NotionAPI({
   apiBaseUrl: process.env.NOTION_API_BASE_URL
 })
 
-export async function getPage(pageId: string): Promise<ExtendedRecordMap> {
+export const getPage = async (pageId: string): Promise<ExtendedRecordMap> => {
   const recordMap = await notion.getPage(pageId)
   const blockIds = Object.keys(recordMap.block)
 
@@ -50,6 +50,6 @@ export async function getPage(pageId: string): Promise<ExtendedRecordMap> {
   return recordMap
 }
 
-export async function search(params: SearchParams): Promise<SearchResults> {
+export const search = async (params: SearchParams): Promise<SearchResults> => {
   return notion.search(params)
 }

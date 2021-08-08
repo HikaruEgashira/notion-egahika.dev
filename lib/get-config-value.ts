@@ -21,7 +21,7 @@ const siteConfig = {
   ...siteConfigOverrides
 }
 
-export function getSiteConfig<T>(key: string, defaultValue?: T): T {
+export const getSiteConfig = <T>(key: string, defaultValue?: T): T => {
   const value = siteConfig[key]
 
   if (value !== undefined) {

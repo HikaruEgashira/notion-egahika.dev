@@ -1,8 +1,11 @@
 import React from 'react'
+import { GetStaticPaths, NextPage } from 'next'
+import { NotionPage } from 'components'
+
 import { isDev, domain } from 'lib/config'
 import { getSiteMaps } from 'lib/get-site-maps'
 import { resolveNotionPage } from 'lib/resolve-notion-page'
-import { NotionPage } from 'components'
+import { PageProps } from 'lib/types'
 
 export const getStaticProps = async (context) => {
   const rawPageId = context.params.pageId as string
@@ -28,7 +31,7 @@ export const getStaticProps = async (context) => {
   }
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   if (isDev) {
     return {
       paths: [],
@@ -54,6 +57,8 @@ export async function getStaticPaths() {
   return ret
 }
 
-export default function NotionDomainDynamicPage(props) {
+export const NotionDomainDynamicPage: NextPage<PageProps> = (props) => {
   return <NotionPage {...props} />
 }
+
+export default NotionDomainDynamicPage

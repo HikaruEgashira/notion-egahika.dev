@@ -6,11 +6,11 @@ import {
 
 import { inversePageUrlOverrides } from './config'
 
-export function getCanonicalPageId(
+export const getCanonicalPageId = (
   pageId: string,
   recordMap: ExtendedRecordMap,
   { uuid = true }: { uuid?: boolean } = {}
-): string | null {
+): string | null => {
   const cleanPageId = parsePageId(pageId, { uuid: false })
   if (!cleanPageId) {
     return null

@@ -9,8 +9,6 @@ const searchNotion = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   const searchParams: types.SearchParams = req.body
-
-  console.log('lambda search-notion', searchParams)
   const results = await search(searchParams)
 
   res.setHeader(

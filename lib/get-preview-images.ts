@@ -11,9 +11,9 @@ function sha256(input: Buffer | string) {
   return crypto.createHash('sha256').update(buffer).digest('hex')
 }
 
-export async function getPreviewImages(
+export const getPreviewImages = async (
   images: string[]
-): Promise<types.PreviewImageMap> {
+): Promise<types.PreviewImageMap> => {
   if (!isPreviewImageSupportEnabled) {
     return {}
   }

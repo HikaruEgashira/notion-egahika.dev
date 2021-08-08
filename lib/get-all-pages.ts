@@ -8,12 +8,10 @@ import { getCanonicalPageId } from './get-canonical-page-id'
 
 const uuid = !!includeNotionIdInUrls
 
-export const getAllPages = pMemoize(getAllPagesImpl, { maxAge: 60000 * 5 })
-
-export async function getAllPagesImpl(
+export const getAllPagesImpl = async (
   rootNotionPageId: string,
   rootNotionSpaceId: string
-): Promise<Partial<types.SiteMap>> {
+): Promise<Partial<types.SiteMap>> => {
   const pageMap = await getAllPagesInSpace(
     rootNotionPageId,
     rootNotionSpaceId,
@@ -55,3 +53,5 @@ export async function getAllPagesImpl(
     canonicalPageMap
   }
 }
+
+export const getAllPages = pMemoize(getAllPagesImpl, { maxAge: 60000 * 5 })

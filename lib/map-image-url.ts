@@ -2,6 +2,7 @@ import { Block } from 'notion-types'
 import { imageCDNHost } from './config'
 
 export const mapNotionImageUrl = (url: string, block: Block) => {
+  let imageUrl = url
   if (!url) {
     return null
   }
@@ -17,12 +18,12 @@ export const mapNotionImageUrl = (url: string, block: Block) => {
   // const origUrl = url
 
   if (url.startsWith('/images')) {
-    url = `https://www.notion.so${url}`
+    imageUrl = `https://www.notion.so${url}`
   }
 
   // more recent versions of notion don't proxy unsplash images
   if (!url.startsWith('https://images.unsplash.com')) {
-    url = `https://www.notion.so${
+    imageUrl = `https://www.notion.so${
       url.startsWith('/image') ? url : `/image/${encodeURIComponent(url)}`
     }`
 
@@ -35,11 +36,11 @@ export const mapNotionImageUrl = (url: string, block: Block) => {
     notionImageUrlV2.searchParams.set('id', block.id)
     notionImageUrlV2.searchParams.set('cache', 'v2')
 
-    url = notionImageUrlV2.toString()
+    imageUrl = notionImageUrlV2.toString()
   }
 
   // console.log({ url, origUrl })
-  return mapImageUrl(url)
+  return mapImageUrl(imageUrl)
 }
 
 export const mapImageUrl = (imageUrl: string) => {
