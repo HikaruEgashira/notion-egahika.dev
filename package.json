@@ -22,7 +22,7 @@
   "dependencies": {
     "@google-cloud/firestore": "4.14.1",
     "classnames": "2.3.1",
-    "date-fns": "2.22.1",
+    "date-fns": "2.23.0",
     "got": "11.8.2",
     "isomorphic-unfetch": "3.1.0",
     "lqip-modern": "1.2.0",
