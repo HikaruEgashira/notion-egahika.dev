@@ -20,7 +20,7 @@
     "posttest": "run-s build"
   },
   "dependencies": {
-    "@google-cloud/firestore": "4.13.1",
+    "@google-cloud/firestore": "4.14.1",
     "classnames": "2.3.1",
     "date-fns": "2.22.1",
     "got": "11.8.2",
