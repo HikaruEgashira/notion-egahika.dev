@@ -27,7 +27,7 @@ export const mapNotionImageUrl = (url: string, block: Block) => {
       url.startsWith('/image') ? url : `/image/${encodeURIComponent(url)}`
     }`
 
-    const notionImageUrlV2 = new URL(url)
+    const notionImageUrlV2 = new URL(imageUrl)
     let table = block.parent_table === 'space' ? 'block' : block.parent_table
     if (table === 'collection') {
       table = 'block'
@@ -39,7 +39,6 @@ export const mapNotionImageUrl = (url: string, block: Block) => {
     imageUrl = notionImageUrlV2.toString()
   }
 
-  // console.log({ url, origUrl })
   return mapImageUrl(imageUrl)
 }
 
