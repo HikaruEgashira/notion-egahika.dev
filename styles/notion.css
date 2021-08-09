@@ -40,7 +40,7 @@
 }
 
 .notion-gallery-grid {
-  @apply grid grid-cols-2 gap-4;
+  @apply grid grid-cols-1 gap-4 sm:grid-cols-2;
 }
 
 .notion-gallery-grid .notion-page-icon {
@@ -129,9 +129,14 @@
   padding: 0;
 }
 
-.notion-page-cover {
-  @apply hero min-h-screen shadow-md fixed;
+.dark-mode .notion-page-cover {
+  @apply hero min-h-screen fixed;
   filter: brightness(60%) blur(2px);
+}
+
+.notion-page-cover {
+  @apply hero min-h-screen fixed;
+  filter: opacity(0.5) blur(2px);
 }
 
 .notion-block-ab9a258d6cf444f3bb40dc2600feae91 .notion-page-link {
