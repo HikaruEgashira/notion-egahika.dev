@@ -12,9 +12,9 @@ module.exports = {
   author: 'HikaruEgashira',
 
   // open graph metadata (optional)
-  // description: '',
-  // socialImageTitle: '',
-  // socialImageSubtitle: '',
+  description: 'egahikaの制作した作品群を紹介しています',
+  socialImageTitle: 'egahika',
+  socialImageSubtitle: 'fail fast, be agile',
 
   // social usernames (optional)
   twitter: 'ITF_hikary',
