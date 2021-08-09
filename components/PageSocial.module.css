@@ -94,10 +94,10 @@
 }
 
 .github .actionBgPane {
-  background: #c9510c;
+  background: #000000;
 }
 .github:hover {
-  border-color: #c9510c;
+  border-color: #000000;
 }
 
 .medium .actionBgPane {
