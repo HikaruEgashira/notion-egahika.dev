@@ -1,4 +1,5 @@
 // global styles shared across the entire site
+import 'windi.css'
 import 'styles/global.css'
 
 // core styles shared by all of react-notion-x (required)
