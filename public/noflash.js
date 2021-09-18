@@ -1,10 +1,6 @@
 /* eslint-disable */
 
-// Insert this script in your index.html right after the <body> tag.
-// This will help to prevent a flash if dark mode is the default.
-
 ;(function () {
-  // Change these if you use something different in your hook.
   var storageKey = 'darkMode'
   var classNameDark = 'dark-mode'
   var classNameLight = 'light-mode'
@@ -26,16 +22,12 @@
     localStorageTheme = JSON.parse(localStorageTheme)
   }
 
-  // Determine the source of truth
   if (localStorageExists) {
-    // source of truth from localStorage
     setClassOnDocumentBody(localStorageTheme)
   } else if (supportsColorSchemeQuery) {
-    // source of truth from system
     setClassOnDocumentBody(mql.matches)
     localStorage.setItem(storageKey, JSON.stringify(mql.matches))
   } else {
-    // source of truth from document.body
     var isDarkMode = document.body.classList.contains(classNameDark)
     localStorage.setItem(storageKey, JSON.stringify(isDarkMode))
   }

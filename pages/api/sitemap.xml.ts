@@ -1,8 +1,8 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 
-import { SiteMap } from '../lib/types'
-import { host } from '../lib/config'
-import { getSiteMaps } from '../lib/get-site-maps'
+import { SiteMap } from '../../lib/types'
+import { host } from '../../lib/config'
+import { getSiteMaps } from '../../lib/get-site-maps'
 
 const siteMap = async (
   req: NextApiRequest,
@@ -32,10 +32,6 @@ const createSitemap = (
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
       <url>
         <loc>${host}</loc>
-      </url>
-
-      <url>
-        <loc>${host}/</loc>
       </url>
 
       ${Object.keys(siteMap.canonicalPageMap)

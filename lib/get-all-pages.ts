@@ -2,11 +2,8 @@ import pMemoize from 'p-memoize'
 import { getAllPagesInSpace } from 'notion-utils'
 
 import * as types from './types'
-import { includeNotionIdInUrls } from './config'
 import { notion } from './notion'
 import { getCanonicalPageId } from './get-canonical-page-id'
-
-const uuid = !!includeNotionIdInUrls
 
 export const getAllPagesImpl = async (
   rootNotionPageId: string,
@@ -26,7 +23,7 @@ export const getAllPagesImpl = async (
       }
 
       const canonicalPageId = getCanonicalPageId(pageId, recordMap, {
-        uuid
+        uuid: false
       })
 
       if (map[canonicalPageId]) {

@@ -1,7 +1,6 @@
 import * as React from 'react'
-import { FaTwitter, FaGithub, FaLinkedin } from 'react-icons/fa'
-import { IoSunnyOutline, IoMoonSharp } from 'react-icons/io5'
 import * as config from 'lib/config'
+import { Icon } from '@iconify/react'
 
 import styles from './styles.module.css'
 
@@ -35,7 +34,11 @@ export const Footer: React.FC<{
             onClick={toggleDarkModeCb}
             title='Tottle dark mode'
           >
-            {isDarkMode ? <IoMoonSharp /> : <IoSunnyOutline />}
+            {isDarkMode ? (
+              <Icon icon='ion:moon-sharp' />
+            ) : (
+              <Icon icon='ion:sunny-outline' />
+            )}
           </a>
         </div>
       ) : null}
@@ -49,7 +52,7 @@ export const Footer: React.FC<{
             target='_blank'
             rel='noopener noreferrer'
           >
-            <FaTwitter />
+            <Icon icon='fa:twitter' />
           </a>
         )}
 
@@ -61,7 +64,7 @@ export const Footer: React.FC<{
             target='_blank'
             rel='noopener noreferrer'
           >
-            <FaGithub />
+            <Icon icon='fa:github' />
           </a>
         )}
 
@@ -73,7 +76,7 @@ export const Footer: React.FC<{
             target='_blank'
             rel='noopener noreferrer'
           >
-            <FaLinkedin />
+            <Icon icon='fa:linkedin' />
           </a>
         )}
       </div>

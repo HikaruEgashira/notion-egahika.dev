@@ -1,40 +1,28 @@
-import Head from 'next/head'
 import * as React from 'react'
 import * as types from 'lib/types'
-import { PageHead } from './PageHead'
+import { NextSeo } from 'next-seo'
 
 import styles from './styles.module.css'
 
-export const Page404: React.FC<types.PageProps> = ({ site, pageId, error }) => {
-  const title = site?.name || 'Notion Page Not Found'
+export const Page404: React.FC<types.PageProps> = ({ pageId, error }) => (
+  <>
+    <NextSeo title='404 Page Not Found' />
 
-  return (
-    <>
-      <PageHead site={site} />
+    <div className={styles.container}>
+      <main className={styles.main}>
+        <h1>Notion Page Not Found</h1>
 
-      <Head>
-        <meta property='og:site_name' content={title} />
-        <meta property='og:title' content={title} />
-
-        <title>{title}</title>
-      </Head>
-
-      <div className={styles.container}>
-        <main className={styles.main}>
-          <h1>Notion Page Not Found</h1>
-
-          {error ? (
-            <p>{error.message}</p>
-          ) : (
-            pageId && (
-              <p>
-                Make sure that Notion page &quot;{pageId}&quot; is publicly
-                accessible.
-              </p>
-            )
-          )}
-        </main>
-      </div>
-    </>
-  )
-}
+        {error ? (
+          <p>{error.message}</p>
+        ) : (
+          pageId && (
+            <p>
+              Make sure that Notion page &quot;{pageId}&quot; is publicly
+              accessible.
+            </p>
+          )
+        )}
+      </main>
+    </div>
+  </>
+)

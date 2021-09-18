@@ -4,12 +4,11 @@ import { ExtendedRecordMap } from 'notion-types'
 import * as acl from './acl'
 import * as types from './types'
 import { pageUrlOverrides, pageUrlAdditions } from './config'
-import { getPage } from './notion'
+import { notion } from './notion'
 import { getSiteMaps } from './get-site-maps'
-import { getSiteForDomain } from './get-site-for-domain'
+import { getSite } from './get-site'
 
 export const resolveNotionPage = async (
-  domain: string,
   rawPageId?: string
 ): Promise<types.PageProps> => {
   let site: types.Site
@@ -32,8 +31,8 @@ export const resolveNotionPage = async (
 
     if (pageId) {
       ;[site, recordMap] = await Promise.all([
-        getSiteForDomain(domain),
-        getPage(pageId)
+        getSite(),
+        notion.getPage(pageId)
       ])
     } else {
       // handle mapping of user-friendly canonical page paths to Notion page IDs
@@ -47,13 +46,10 @@ export const resolveNotionPage = async (
         // site = await getSiteForDomain(domain)
         // recordMap = siteMap.pageMap[pageId]
 
-        const resources = await Promise.all([
-          getSiteForDomain(domain),
-          getPage(pageId)
+        ;[site, recordMap] = await Promise.all([
+          getSite(),
+          notion.getPage(pageId)
         ])
-
-        site = resources[0]
-        recordMap = resources[1]
       } else {
         return {
           error: {
@@ -64,9 +60,9 @@ export const resolveNotionPage = async (
       }
     }
   } else {
-    site = await getSiteForDomain(domain)
+    site = await getSite()
     pageId = site.rootNotionPageId
-    recordMap = await getPage(pageId)
+    recordMap = await notion.getPage(pageId)
   }
 
   const props = { site, recordMap, pageId }

@@ -19,7 +19,7 @@
     {
       "type": "node",
       "request": "attach",
-      "name": "Next.js App",
+      "name": "Attach to application",
       "skipFiles": ["<node_internals>/**"],
       "port": 9229
     }

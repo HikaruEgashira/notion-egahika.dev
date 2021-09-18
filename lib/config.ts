@@ -8,6 +8,7 @@
 import { parsePageId } from 'notion-utils'
 import { getSiteConfig, getEnv } from './get-config-value'
 import { PageUrlOverridesMap, PageUrlOverridesInverseMap } from './types'
+import SEO from '../next-seo.config'
 
 export const rootNotionPageId: string = parsePageId(
   getSiteConfig('rootNotionPageId'),
@@ -37,63 +38,21 @@ export const pageUrlAdditions = cleanPageUrlMap(
 )
 
 // general site config
-export const name: string = getSiteConfig('name')
-export const author: string = getSiteConfig('author')
-export const domain: string = getSiteConfig('domain')
-export const description: string = getSiteConfig('description')
+export const name: string = SEO.title
+export const author: string = SEO.twitter.site
+export const domain: string = new URL(SEO.openGraph.url).hostname
+export const description: string = SEO.description
 
 // social accounts
-export const twitter: string | null = getSiteConfig('twitter', null)
+export const twitter: string | null = SEO.twitter.handle ?? null
 export const github: string | null = getSiteConfig('github', null)
 export const linkedin: string | null = getSiteConfig('linkedin', null)
-
-export const socialImageTitle: string | null = getSiteConfig(
-  'socialImageTitle',
-  null
-)
-export const socialImageSubtitle: string | null = getSiteConfig(
-  'socialImageSubtitle',
-  null
-)
-
-// default notion values for site-wide consistency (optional; may be overridden on a per-page basis)
-export const defaultPageIcon: string | null = getSiteConfig(
-  'defaultPageIcon',
-  null
-)
-export const defaultPageCover: string | null = getSiteConfig(
-  'defaultPageCover',
-  null
-)
-export const defaultPageCoverPosition: number = getSiteConfig(
-  'defaultPageCoverPosition',
-  0.5
-)
-
-// Optional utteranc.es comments via GitHub issue comments
-export const utterancesGitHubRepo: string | null = getSiteConfig(
-  'utterancesGitHubRepo',
-  null
-)
 
 // Optional image CDN host to proxy all image requests through
 export const imageCDNHost: string | null = getSiteConfig('imageCDNHost', null)
 
-// Optional whether or not to enable support for LQIP preview images
-// (requires a Google Firebase collection)
-export const isPreviewImageSupportEnabled: boolean = getSiteConfig(
-  'isPreviewImageSupportEnabled',
-  false
-)
-
 export const isDev =
   process.env.NODE_ENV === 'development' || !process.env.NODE_ENV
-
-// where it all starts -- the site's root Notion page
-export const includeNotionIdInUrls: boolean = getSiteConfig(
-  'includeNotionIdInUrls',
-  !!isDev
-)
 
 // ----------------------------------------------------------------------------
 
@@ -103,53 +62,11 @@ export const port = getEnv('PORT', '3000')
 export const host = isDev ? `http://localhost:${port}` : `https://${domain}`
 
 export const apiBaseUrl = `${host}/api`
-
 export const api = {
-  createPreviewImage: `${apiBaseUrl}/create-preview-image`,
   searchNotion: `${apiBaseUrl}/search-notion`
 }
 
 // ----------------------------------------------------------------------------
-
-const defaultEnvValueForPreviewImageSupport =
-  isPreviewImageSupportEnabled && isServer ? undefined : null
-
-export const googleProjectId = getEnv(
-  'GCLOUD_PROJECT',
-  defaultEnvValueForPreviewImageSupport
-)
-
-export const googleApplicationCredentials = getGoogleApplicationCredentials()
-
-export const firebaseCollectionImages = getEnv(
-  'FIREBASE_COLLECTION_IMAGES',
-  defaultEnvValueForPreviewImageSupport
-)
-
-// this hack is necessary because vercel doesn't support secret files so we need to encode our google
-// credentials a base64-encoded string of the JSON-ified content
-function getGoogleApplicationCredentials() {
-  if (!isPreviewImageSupportEnabled || !isServer) {
-    return null
-  }
-
-  try {
-    const googleApplicationCredentialsBase64 = getEnv(
-      'GOOGLE_APPLICATION_CREDENTIALS',
-      defaultEnvValueForPreviewImageSupport
-    )
-
-    return JSON.parse(
-      Buffer.from(googleApplicationCredentialsBase64, 'base64').toString()
-    )
-  } catch (err) {
-    console.error(
-      'Firebase config error: invalid "GOOGLE_APPLICATION_CREDENTIALS" should be base64-encoded JSON\n'
-    )
-
-    throw err
-  }
-}
 
 function cleanPageUrlMap(
   pageUrlMap: PageUrlOverridesMap,

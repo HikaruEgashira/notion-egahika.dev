@@ -1,7 +1,7 @@
+import { notion } from 'lib/notion'
 import { NextApiRequest, NextApiResponse } from 'next'
 
-import * as types from '../lib/types'
-import { search } from '../lib/notion'
+import * as types from '../../lib/types'
 
 const searchNotion = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method !== 'POST') {
@@ -9,7 +9,7 @@ const searchNotion = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   const searchParams: types.SearchParams = req.body
-  const results = await search(searchParams)
+  const results = await notion.search(searchParams)
 
   res.setHeader(
     'Cache-Control',

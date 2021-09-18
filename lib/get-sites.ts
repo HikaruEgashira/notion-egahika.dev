@@ -1,7 +1,6 @@
-import { getSiteForDomain } from './get-site-for-domain'
-import * as config from './config'
+import { getSite } from './get-site'
 import * as types from './types'
 
 export const getSites = async (): Promise<types.Site[]> => {
-  return [await getSiteForDomain(config.domain)]
+  return [await getSite()]
 }
