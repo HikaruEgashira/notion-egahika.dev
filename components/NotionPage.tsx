@@ -99,7 +99,12 @@ export const NotionPage: React.FC<types.PageProps> = ({
 
   return (
     <>
-      <NextSeo title={title} description={socialDescription} />
+      <NextSeo
+        title={title}
+        description={socialDescription}
+        noindex={location.hostname !== site.domain}
+        nofollow={location.hostname !== site.domain}
+      />
       <CustomFont site={site} />
 
       {isLiteMode && <BodyClassName className='notion-lite' />}

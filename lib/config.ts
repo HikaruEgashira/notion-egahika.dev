@@ -38,7 +38,7 @@ export const pageUrlAdditions = cleanPageUrlMap(
 )
 
 // general site config
-export const name: string = SEO.title
+export const name: string = SEO.openGraph.title
 export const author: string = SEO.twitter.site
 export const domain: string = new URL(SEO.openGraph.url).hostname
 export const description: string = SEO.description
