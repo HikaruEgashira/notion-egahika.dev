@@ -1,8 +1,9 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 
-import { SiteMap } from '~/lib/types'
-import { host } from '~/lib/config'
-import { getSiteMaps } from '~/lib/get-site-maps'
+import { SiteMap } from 'types'
+import { host } from 'config'
+import { getSiteMaps } from 'lib/front/get-site-maps'
+import { getSite } from 'lib/front/resolve-notion-page'
 
 const siteMap = async (
   req: NextApiRequest,
@@ -12,7 +13,8 @@ const siteMap = async (
     return res.status(405).send({ error: 'method not allowed' })
   }
 
-  const siteMaps = await getSiteMaps()
+  const site = getSite()
+  const siteMaps = await getSiteMaps([site])
 
   res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate')
   res.setHeader('Content-Type', 'text/xml')

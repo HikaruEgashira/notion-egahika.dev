@@ -7,8 +7,8 @@
 
 import { parsePageId } from 'notion-utils'
 import { getSiteConfig, getEnv } from './get-config-value'
-import { PageUrlOverridesMap, PageUrlOverridesInverseMap } from './types'
-import SEO from '~/next-seo.config'
+import { PageUrlOverridesMap, PageUrlOverridesInverseMap } from '~/types'
+import SEO from './next-seo.config'
 
 export const rootNotionPageId: string = parsePageId(
   getSiteConfig('rootNotionPageId'),
@@ -47,9 +47,6 @@ export const description: string = SEO.description
 export const twitter: string | null = SEO.twitter.handle ?? null
 export const github: string | null = getSiteConfig('github', null)
 export const linkedin: string | null = getSiteConfig('linkedin', null)
-
-// Optional image CDN host to proxy all image requests through
-export const imageCDNHost: string | null = getSiteConfig('imageCDNHost', null)
 
 export const isDev =
   process.env.NODE_ENV === 'development' || !process.env.NODE_ENV
@@ -99,6 +96,7 @@ function cleanPageUrlMap(
   }, {})
 }
 
+// TODO
 function invertPageUrlOverrides(
   pageUrlOverrides: PageUrlOverridesMap
 ): PageUrlOverridesInverseMap {

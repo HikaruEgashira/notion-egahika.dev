@@ -4,8 +4,6 @@ import {
   getCanonicalPageId as getCanonicalPageIdImpl
 } from 'notion-utils'
 
-import { inversePageUrlOverrides } from './config'
-
 export const getCanonicalPageId = (
   pageId: string,
   recordMap: ExtendedRecordMap,
@@ -16,12 +14,7 @@ export const getCanonicalPageId = (
     return null
   }
 
-  const override = inversePageUrlOverrides[cleanPageId]
-  if (override) {
-    return override
-  } else {
-    return getCanonicalPageIdImpl(pageId, recordMap, {
-      uuid
-    })
-  }
+  return getCanonicalPageIdImpl(pageId, recordMap, {
+    uuid
+  })
 }

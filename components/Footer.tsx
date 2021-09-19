@@ -1,5 +1,5 @@
 import * as React from 'react'
-import * as config from 'lib/config'
+import * as config from 'config'
 import { Icon } from '@iconify/react'
 
 import styles from './styles.module.css'

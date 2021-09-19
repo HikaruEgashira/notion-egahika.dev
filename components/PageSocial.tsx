@@ -1,7 +1,7 @@
 import React from 'react'
 import cs from 'classnames'
 
-import * as config from 'lib/config'
+import * as config from 'config'
 
 import styles from './PageSocial.module.css'
 

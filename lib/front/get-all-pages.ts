@@ -1,9 +1,9 @@
 import pMemoize from 'p-memoize'
 import { getAllPagesInSpace } from 'notion-utils'
 
-import * as types from './types'
+import * as types from 'types'
 import { notion } from './notion'
-import { getCanonicalPageId } from './get-canonical-page-id'
+import { getCanonicalPageId } from 'lib/renderer/get-canonical-page-id'
 
 export const getAllPagesImpl = async (
   rootNotionPageId: string,

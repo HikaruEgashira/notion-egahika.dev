@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 
-import { host } from '~/lib/config'
+import { host } from 'config'
 
 const robots = async (
   req: NextApiRequest,

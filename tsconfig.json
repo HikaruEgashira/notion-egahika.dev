@@ -15,10 +15,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "typeRoots": ["./node_modules/@types"],
-    "baseUrl": ".",
-    "paths": {
-      "~/*": ["./*"]
-    }
+    "baseUrl": "."
   },
   "exclude": ["node_modules"],
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]

@@ -1,8 +1,8 @@
 import fetch from 'isomorphic-unfetch'
 import pMemoize from 'p-memoize'
 
-import { api } from './config'
-import * as types from './types'
+import { api } from 'config'
+import * as types from 'types'
 
 const searchNotionImpl = async (
   params: types.SearchParams

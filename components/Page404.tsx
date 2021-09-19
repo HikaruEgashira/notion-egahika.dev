@@ -1,5 +1,5 @@
 import * as React from 'react'
-import * as types from 'lib/types'
+import * as types from 'types'
 import { NextSeo } from 'next-seo'
 
 import styles from './styles.module.css'

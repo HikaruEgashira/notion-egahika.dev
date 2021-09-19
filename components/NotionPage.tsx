@@ -2,8 +2,7 @@ import * as React from 'react'
 import dynamic from 'next/dynamic'
 import cs from 'classnames'
 import { useRouter } from 'next/router'
-import { useLocation, useSearchParam } from 'react-use'
-import BodyClassName from 'react-body-classname'
+import { useLocation } from 'react-use'
 import useDarkMode from 'use-dark-mode'
 import { NextSeo } from 'next-seo'
 
@@ -12,13 +11,17 @@ import { NotionRenderer, Code, Collection, CollectionRow } from 'react-notion-x'
 
 // utils
 import { getBlockTitle } from 'notion-utils'
-import { mapPageUrl } from 'lib/map-page-url'
-import { mapNotionImageUrl } from 'lib/map-image-url'
-import { getPageDescription, getPageTweet } from 'lib/get-page-property'
-import { searchNotion } from 'lib/search-notion'
-import * as types from 'lib/types'
+import { mapPageUrl } from 'lib/renderer/map-page-url'
+import { mapNotionImageUrl } from 'lib/renderer/map-image-url'
+import {
+  getPageDescription,
+  getPageTweet
+} from 'lib/renderer/get-page-property'
+import { searchNotion } from 'lib/server/search-notion'
+import * as types from 'types'
 
 // components
+import styles from './styles.module.css'
 import { CustomFont } from './CustomFont'
 import { Footer } from './Footer'
 import { Loading } from './Loading'
@@ -27,11 +30,9 @@ import { PageActions } from './PageActions'
 import { PageLink } from './PageLink'
 import { PageSocial } from './PageSocial'
 
-import styles from './styles.module.css'
-
+// dynamic components
 const notionX = (component: keyof typeof import('react-notion-x')) =>
   import('react-notion-x').then((notion) => notion[component])
-
 const Pdf = dynamic(() => notionX('Pdf'))
 const Equation = dynamic(() => notionX('Equation'))
 const Modal = dynamic(() => notionX('Modal'), { ssr: false })
@@ -45,14 +46,6 @@ export const NotionPage: React.FC<types.PageProps> = ({
 }) => {
   const router = useRouter()
   const location = useLocation()
-  const lite = useSearchParam('lite')
-
-  // lite mode is for oembed
-  const params: any = {}
-  if (lite) params.lite = lite
-  const isLiteMode = lite === 'true'
-
-  const searchParams = new URLSearchParams(params)
 
   const darkMode = useDarkMode(true, { classNameDark: 'dark-mode' })
 
@@ -68,13 +61,12 @@ export const NotionPage: React.FC<types.PageProps> = ({
 
   const title = getBlockTitle(block, recordMap) || site.name
 
-  const siteMapPageUrl = mapPageUrl(site, recordMap, searchParams)
+  const siteMapPageUrl = mapPageUrl(site, recordMap, new URLSearchParams())
 
   // const isRootPage =
   //   parsePageId(block.id) === parsePageId(site.rootNotionPageId)
   const isBlogPost =
     block.type === 'page' && block.parent_table === 'collection'
-  const showTableOfContents = !!isBlogPost
   const minTableOfContentsItems = 3
 
   const socialDescription = getPageDescription(block, recordMap)
@@ -103,8 +95,6 @@ export const NotionPage: React.FC<types.PageProps> = ({
       />
       <CustomFont site={site} />
 
-      {isLiteMode && <BodyClassName className='notion-lite' />}
-
       <NotionRenderer
         bodyClassName={cs(
           styles.notion,
@@ -123,11 +113,11 @@ export const NotionPage: React.FC<types.PageProps> = ({
         }}
         recordMap={recordMap}
         rootPageId={site.rootNotionPageId}
-        fullPage={!isLiteMode}
+        fullPage={true}
         darkMode={darkMode.value}
         previewImages={site.previewImages !== false}
         showCollectionViewDropdown={false}
-        showTableOfContents={showTableOfContents}
+        showTableOfContents={isBlogPost}
         minTableOfContentsItems={minTableOfContentsItems}
         defaultPageIcon={null}
         defaultPageCover={null}

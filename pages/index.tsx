@@ -2,8 +2,8 @@ import React from 'react'
 import { GetStaticProps, NextPage } from 'next'
 import { NotionPage } from 'components'
 
-import { resolveNotionPage } from 'lib/resolve-notion-page'
-import * as types from 'lib/types'
+import { resolveNotionPage } from 'lib/front/resolve-notion-page'
+import * as types from 'types'
 
 export const getStaticProps: GetStaticProps<types.PageProps> = async () => {
   const props = await resolveNotionPage()

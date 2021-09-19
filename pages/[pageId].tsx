@@ -2,10 +2,10 @@ import React from 'react'
 import { GetStaticPaths, NextPage } from 'next'
 import { NotionPage } from 'components'
 
-import { isDev } from 'lib/config'
-import { getSiteMaps } from 'lib/get-site-maps'
-import { resolveNotionPage } from 'lib/resolve-notion-page'
-import { PageProps } from 'lib/types'
+import { isDev } from 'config'
+import { PageProps } from 'types'
+import { getSiteMaps } from 'lib/front/get-site-maps'
+import { resolveNotionPage, getSite } from 'lib/front/resolve-notion-page'
 
 export const getStaticProps = async (context) => {
   const rawPageId = context.params.pageId as string
@@ -37,7 +37,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
     }
   }
 
-  const siteMaps = await getSiteMaps()
+  const site = await getSite()
+  const siteMaps = await getSiteMaps([site])
 
   const ret = {
     paths: siteMaps.flatMap((siteMap) =>

@@ -1,7 +1,10 @@
 import { Block } from 'notion-types'
-import { imageCDNHost } from './config'
 
-export const mapNotionImageUrl = (url: string, block: Block) => {
+export const mapNotionImageUrl = (
+  url: string,
+  block: Block,
+  imageCDNHost?: string
+) => {
   let imageUrl = url
   if (!url) {
     return null
@@ -42,7 +45,7 @@ export const mapNotionImageUrl = (url: string, block: Block) => {
   return mapImageUrl(imageUrl)
 }
 
-export const mapImageUrl = (imageUrl: string) => {
+export const mapImageUrl = (imageUrl: string, imageCDNHost?: string) => {
   if (imageUrl.startsWith('data:')) {
     return imageUrl
   }
