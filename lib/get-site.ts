@@ -10,3 +10,7 @@ export const getSite = async (): Promise<types.Site | null> => {
     rootNotionSpaceId: config.rootNotionSpaceId
   } as types.Site
 }
+
+export const getSites = async (): Promise<types.Site[]> => {
+  return [await getSite()]
+}

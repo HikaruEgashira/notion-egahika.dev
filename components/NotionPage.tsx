@@ -1,5 +1,4 @@
 import * as React from 'react'
-import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import cs from 'classnames'
 import { useRouter } from 'next/router'
@@ -21,26 +20,22 @@ import * as types from 'lib/types'
 
 // components
 import { CustomFont } from './CustomFont'
+import { Footer } from './Footer'
 import { Loading } from './Loading'
 import { Page404 } from './Page404'
 import { PageActions } from './PageActions'
-import { Footer } from './Footer'
+import { PageLink } from './PageLink'
 import { PageSocial } from './PageSocial'
 
 import styles from './styles.module.css'
 
-const Pdf = dynamic(() => import('react-notion-x').then((notion) => notion.Pdf))
+const notionX = (component: keyof typeof import('react-notion-x')) =>
+  import('react-notion-x').then((notion) => notion[component])
 
-const Equation = dynamic(() =>
-  import('react-notion-x').then((notion) => notion.Equation)
-)
-
+const Pdf = dynamic(() => notionX('Pdf'))
+const Equation = dynamic(() => notionX('Equation'))
+const Modal = dynamic(() => notionX('Modal'), { ssr: false })
 const Tweet = dynamic(() => import('react-tweet-embed'))
-
-const Modal = dynamic(
-  () => import('react-notion-x').then((notion) => notion.Modal),
-  { ssr: false }
-)
 
 export const NotionPage: React.FC<types.PageProps> = ({
   site,
@@ -52,11 +47,11 @@ export const NotionPage: React.FC<types.PageProps> = ({
   const location = useLocation()
   const lite = useSearchParam('lite')
 
+  // lite mode is for oembed
   const params: any = {}
   if (lite) params.lite = lite
-
-  // lite mode is for oembed
   const isLiteMode = lite === 'true'
+
   const searchParams = new URLSearchParams(params)
 
   const darkMode = useDarkMode(true, { classNameDark: 'dark-mode' })
@@ -67,7 +62,6 @@ export const NotionPage: React.FC<types.PageProps> = ({
 
   const keys = Object.keys(recordMap?.block || {})
   const block = recordMap?.block?.[keys[0]]?.value
-
   if (error || !site || !keys.length || !block) {
     return <Page404 pageId={pageId} error={error} />
   }
@@ -85,7 +79,6 @@ export const NotionPage: React.FC<types.PageProps> = ({
 
   const socialDescription = getPageDescription(block, recordMap)
 
-  const comments: React.ReactNode = null
   let pageAside: React.ReactChild = null
 
   const isValidDomain = location.hostname !== site.domain
@@ -119,30 +112,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
         )}
         components={{
           // eslint-disable-next-line react/display-name
-          pageLink: ({
-            href,
-            as,
-            passHref,
-            prefetch,
-            replace,
-            scroll,
-            shallow,
-            locale,
-            ...props
-          }) => (
-            <Link
-              href={href}
-              as={as}
-              passHref={passHref}
-              prefetch={prefetch}
-              replace={replace}
-              scroll={scroll}
-              shallow={shallow}
-              locale={locale}
-            >
-              <a {...props} />
-            </Link>
-          ),
+          pageLink: PageLink,
           code: Code,
           collection: Collection,
           collectionRow: CollectionRow,
@@ -159,13 +129,13 @@ export const NotionPage: React.FC<types.PageProps> = ({
         showCollectionViewDropdown={false}
         showTableOfContents={showTableOfContents}
         minTableOfContentsItems={minTableOfContentsItems}
-        // defaultPageIcon={config.defaultPageIcon}
-        // defaultPageCover={config.defaultPageCover}
-        // defaultPageCoverPosition={config.defaultPageCoverPosition}
+        defaultPageIcon={null}
+        defaultPageCover={null}
+        defaultPageCoverPosition={null}
         mapPageUrl={siteMapPageUrl}
         mapImageUrl={mapNotionImageUrl}
         searchNotion={searchNotion}
-        pageFooter={comments}
+        pageFooter={null}
         pageAside={pageAside}
         footer={
           <Footer

@@ -1,7 +1,7 @@
 import { notion } from 'lib/notion'
 import { NextApiRequest, NextApiResponse } from 'next'
 
-import * as types from '../../lib/types'
+import * as types from '~/lib/types'
 
 const searchNotion = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method !== 'POST') {

@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "node",
+      "request": "attach",
+      "name": "Attach to application",
+      "skipFiles": ["<node_internals>/**"],
+      "port": 9229
+    },
+    {
+      "type": "node",
       "request": "launch",
       "name": "next dev",
       "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/next",
@@ -15,13 +22,6 @@
       "env": {
         "NODE_OPTIONS": "--inspect"
       }
-    },
-    {
-      "type": "node",
-      "request": "attach",
-      "name": "Attach to application",
-      "skipFiles": ["<node_internals>/**"],
-      "port": 9229
     }
   ]
 }

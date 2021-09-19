@@ -34,7 +34,7 @@ import 'prismjs/components/prism-bash'
 
 import React from 'react'
 import { DefaultSeo } from 'next-seo'
-import SEO from '../next-seo.config'
+import SEO from '~/next-seo.config'
 
 export default function App({ Component, pageProps }) {
   return (

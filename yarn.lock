@@ -4057,6 +4057,11 @@ react-pdf@^4.2.0:
     pdfjs-dist "2.1.266"
     prop-types "^15.6.2"
 
+react-props-x@0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/react-props-x/-/react-props-x-0.0.2.tgz#891034f18e3f7c10549dd0b4d99aeba8e97084b8"
+  integrity sha512-3EcCNg6iG7Z+WECaS/AvqcP9SWUHHfj3Vqbb/r+zsKr1qDtXEIV7AAi5WUPMgVe8QV6Fd9Xjh4jA7p5CYMZsMA==
+
 react-refresh@0.8.3:
   version "0.8.3"
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.8.3.tgz#721d4657672d400c5e3c75d063c4a85fb2d5d68f"

@@ -7,6 +7,10 @@
  * places to add some flare.
  */
 
+.notion > * {
+  padding: 0;
+}
+
 .notion {
   --notion-max-width: 720px;
   --notion-header-height: 54px;

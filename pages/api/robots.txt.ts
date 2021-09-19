@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 
-import { host } from '../../lib/config'
+import { host } from '~/lib/config'
 
 const robots = async (
   req: NextApiRequest,
@@ -10,11 +10,7 @@ const robots = async (
     return res.status(405).send({ error: 'method not allowed' })
   }
 
-  // cache robots.txt for up to 60 seconds
-  res.setHeader(
-    'Cache-Control',
-    'public, s-maxage=60, max-age=60, stale-while-revalidate=60'
-  )
+  res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate')
   res.setHeader('Content-Type', 'text/plain')
   res.write(`User-agent: *
 Sitemap: ${host}/api/sitemap.xml
