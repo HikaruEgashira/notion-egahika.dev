@@ -1,6 +1,7 @@
 import * as types from 'types'
 import { getPageProperty } from 'notion-utils'
 
+// unused
 export const getPageTweet = (
   block: types.Block,
   recordMap: types.ExtendedRecordMap

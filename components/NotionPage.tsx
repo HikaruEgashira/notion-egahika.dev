@@ -4,19 +4,22 @@ import cs from 'classnames'
 import { useRouter } from 'next/router'
 import { useLocation } from 'react-use'
 import useDarkMode from 'use-dark-mode'
-import { NextSeo } from 'next-seo'
+import { NextSeo, NextSeoProps } from 'next-seo'
 
 // core notion renderer
-import { NotionRenderer, Code, Collection, CollectionRow } from 'react-notion-x'
+import {
+  NotionRenderer,
+  Code,
+  Collection,
+  CollectionRow,
+  NotionRendererProps
+} from 'react-notion-x'
 
 // utils
 import { getBlockTitle } from 'notion-utils'
 import { mapPageUrl } from 'lib/renderer/map-page-url'
 import { mapNotionImageUrl } from 'lib/renderer/map-image-url'
-import {
-  getPageDescription,
-  getPageTweet
-} from 'lib/renderer/get-page-property'
+import { getPageDescription } from 'lib/renderer/get-page-property'
 import { searchNotion } from 'lib/server/search-notion'
 import * as types from 'types'
 
@@ -26,7 +29,6 @@ import { CustomFont } from './CustomFont'
 import { Footer } from './Footer'
 import { Loading } from './Loading'
 import { Page404 } from './Page404'
-import { PageActions } from './PageActions'
 import { PageLink } from './PageLink'
 import { PageSocial } from './PageSocial'
 
@@ -46,7 +48,6 @@ export const NotionPage: React.FC<types.PageProps> = ({
 }) => {
   const router = useRouter()
   const location = useLocation()
-
   const darkMode = useDarkMode(true, { classNameDark: 'dark-mode' })
 
   if (router.isFallback) {
@@ -59,49 +60,47 @@ export const NotionPage: React.FC<types.PageProps> = ({
     return <Page404 pageId={pageId} error={error} />
   }
 
+  // seo
   const title = getBlockTitle(block, recordMap) || site.name
+  const description = getPageDescription(block, recordMap)
+  const isValidDomain = location.hostname !== site.domain
+  const seoProps: NextSeoProps = {
+    title,
+    description,
+    nofollow: isValidDomain,
+    noindex: isValidDomain
+  }
 
   const siteMapPageUrl = mapPageUrl(site, recordMap, new URLSearchParams())
-
-  // const isRootPage =
-  //   parsePageId(block.id) === parsePageId(site.rootNotionPageId)
   const isBlogPost =
     block.type === 'page' && block.parent_table === 'collection'
-  const minTableOfContentsItems = 3
 
-  const socialDescription = getPageDescription(block, recordMap)
-
-  let pageAside: React.ReactChild = null
-
-  const isValidDomain = location.hostname !== site.domain
-
-  // only display comments and page actions on blog post pages
-  if (isBlogPost) {
-    const tweet = getPageTweet(block, recordMap)
-    if (tweet) {
-      pageAside = <PageActions tweet={tweet} />
-    }
-  } else {
-    pageAside = <PageSocial />
+  const notionProps: NotionRendererProps = {
+    recordMap,
+    bodyClassName: cs(
+      styles.notion,
+      pageId === site.rootNotionPageId && 'index-page'
+    ),
+    rootPageId: site.rootNotionPageId,
+    fullPage: true,
+    darkMode: darkMode.value,
+    previewImages: site.previewImages !== false,
+    showCollectionViewDropdown: false,
+    showTableOfContents: isBlogPost,
+    minTableOfContentsItems: 3,
+    mapPageUrl: siteMapPageUrl,
+    mapImageUrl: mapNotionImageUrl,
+    searchNotion
   }
 
   return (
     <>
-      <NextSeo
-        title={title}
-        description={socialDescription}
-        noindex={isValidDomain}
-        nofollow={isValidDomain}
-      />
+      <NextSeo {...seoProps} />
       <CustomFont site={site} />
 
       <NotionRenderer
-        bodyClassName={cs(
-          styles.notion,
-          pageId === site.rootNotionPageId && 'index-page'
-        )}
+        {...notionProps}
         components={{
-          // eslint-disable-next-line react/display-name
           pageLink: PageLink,
           code: Code,
           collection: Collection,
@@ -111,28 +110,13 @@ export const NotionPage: React.FC<types.PageProps> = ({
           pdf: Pdf,
           equation: Equation
         }}
-        recordMap={recordMap}
-        rootPageId={site.rootNotionPageId}
-        fullPage={true}
-        darkMode={darkMode.value}
-        previewImages={site.previewImages !== false}
-        showCollectionViewDropdown={false}
-        showTableOfContents={isBlogPost}
-        minTableOfContentsItems={minTableOfContentsItems}
-        defaultPageIcon={null}
-        defaultPageCover={null}
-        defaultPageCoverPosition={null}
-        mapPageUrl={siteMapPageUrl}
-        mapImageUrl={mapNotionImageUrl}
-        searchNotion={searchNotion}
-        pageFooter={null}
-        pageAside={pageAside}
         footer={
           <Footer
             isDarkMode={darkMode.value}
             toggleDarkMode={darkMode.toggle}
           />
         }
+        pageAside={<PageSocial />}
       />
     </>
   )
