@@ -1,4 +1,3 @@
-import fetch from 'isomorphic-unfetch'
 import pMemoize from 'p-memoize'
 
 import { api } from 'config'

@@ -21,7 +21,6 @@
     "daisyui": "^1.11.0",
     "date-fns": "2.23.0",
     "got": "11.8.2",
-    "isomorphic-unfetch": "3.1.0",
     "lqip-modern": "1.2.0",
     "next": "11.0.1",
     "next-seo": "^4.27.0",
