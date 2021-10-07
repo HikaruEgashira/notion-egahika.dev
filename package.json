@@ -27,7 +27,7 @@
     "next-transpile-modules": "8.0.0",
     "notion-client": "4.8.2",
     "notion-types": "4.8.2",
-    "notion-utils": "4.8.2",
+    "notion-utils": "4.8.6",
     "p-map": "4.0.0",
     "p-memoize": "4.0.1",
     "react": "17.0.2",
