@@ -3409,14 +3409,14 @@ normalize-url@^4.1.0:
   resolved "https://registry.yarnpkg.com/normalize-url/-/normalize-url-4.5.0.tgz#453354087e6ca96957bd8f5baf753f5982142129"
   integrity sha512-2s47yzUxdexf1OhyRi4Em83iQk0aPvwTddtFz4hnSSw9dCEsLEGf6SwIO8ss/19S9iBb5sJaOuTvTGDeZI00BQ==
 
-notion-client@4.8.2:
-  version "4.8.2"
-  resolved "https://registry.yarnpkg.com/notion-client/-/notion-client-4.8.2.tgz#68fb9b6d0b386e126a929c0f00d38e15a1bff061"
-  integrity sha512-B2Q041vnwqHxLXezcjmAAOK55U6BEhT8lVjdpbIuMOURdjmbttdaVqUxDVgiCF0oMo4IwSqdXHkKB9ZrkQYxow==
+notion-client@4.9.7:
+  version "4.9.7"
+  resolved "https://registry.yarnpkg.com/notion-client/-/notion-client-4.9.7.tgz#e4540f189de33a0e64e28d3e49ac06f448158bc8"
+  integrity sha512-G70rE5e14EELo7+Id0Sef2TwXIaCyVMi0F8S8/T1NYPAWNhU7GJfgf8Js2czfX0Ce5QOsHAlrdwq6ZeYcPkLyg==
   dependencies:
     got "^11.8.1"
     notion-types "^4.8.2"
-    notion-utils "^4.8.2"
+    notion-utils "^4.8.6"
     p-map "^4.0.0"
 
 notion-types@4.8.2, notion-types@^4.8.2:
@@ -3424,7 +3424,7 @@ notion-types@4.8.2, notion-types@^4.8.2:
   resolved "https://registry.yarnpkg.com/notion-types/-/notion-types-4.8.2.tgz#b7b1182a595f1a526c3617578874667cdf7e52fe"
   integrity sha512-WfmEv/3hgHkXtmmAL2rlS9i7MAdc2pIJZGoeqi8GnBK58XMW6zgkNFjrUBXJtaDiOjQ6nfVE/yepTj79LGhERw==
 
-notion-utils@4.8.6:
+notion-utils@4.8.6, notion-utils@^4.8.6:
   version "4.8.6"
   resolved "https://registry.yarnpkg.com/notion-utils/-/notion-utils-4.8.6.tgz#cc10b3b5b6d7c54686404880a9008babbbe76651"
   integrity sha512-FM//qr5la71mnU1Sw5elfKbcbsBtDNi8wdtBeFGVXCLm0UYpNEAqfSAgf35EfuJ3AeMghCC8ge5ML+9bBpceUQ==
