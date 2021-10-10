@@ -3715,14 +3715,6 @@ notion-utils@4.8.6, notion-utils@^4.8.6:
     notion-types "^4.8.2"
     p-queue "^6.6.1"
 
-notion-utils@^4.8.2:
-  version "4.8.2"
-  resolved "https://registry.yarnpkg.com/notion-utils/-/notion-utils-4.8.2.tgz#f6991a91596a0e4717f20a11f4f52cc3625c21ee"
-  integrity sha512-5IkeukBVIOpRODC06qT/19MJGG9HPN6T4wWDMaVl0pXogjN9gALnOSHsF8ljxgJQxX83OT2vAjD/rVNpU+uyaw==
-  dependencies:
-    notion-types "^4.8.2"
-    p-queue "^6.6.1"
-
 npm-run-all@4.1.5:
   version "4.1.5"
   resolved "https://registry.yarnpkg.com/npm-run-all/-/npm-run-all-4.1.5.tgz#04476202a15ee0e2e214080861bff12a51d98fba"
@@ -4447,10 +4439,10 @@ react-modal@^3.11.2:
     react-lifecycles-compat "^3.0.0"
     warning "^4.0.3"
 
-react-notion-x@4.8.3:
-  version "4.8.3"
-  resolved "https://registry.yarnpkg.com/react-notion-x/-/react-notion-x-4.8.3.tgz#cec41d80e95b09ce22826b1e36b1b5c247934d79"
-  integrity sha512-BXucVuwBG9oQfyC11LsoPV9QPq6Kc+a6m7Xm2Hj6etDjYXzhNf78ADdU9saSY0M+4dchUHcGLLnqD23/2Y9Kcg==
+react-notion-x@4.9.7:
+  version "4.9.7"
+  resolved "https://registry.yarnpkg.com/react-notion-x/-/react-notion-x-4.9.7.tgz#72b04e201658a789be1a2d8f7f297d9534401f37"
+  integrity sha512-YJripHeDwuamFfGHVeLnv8OLQzdo1Rzer+iOW+7IfPonv6L4q+xD50PoG4awMoARszlRnsJ8osnHqCD1XejA1g==
   dependencies:
     "@matejmazur/react-katex" "^3.1.3"
     date-fns "^2.15.0"
@@ -4460,7 +4452,7 @@ react-notion-x@4.8.3:
     lodash.throttle "^4.1.1"
     medium-zoom "^1.0.6"
     notion-types "^4.8.2"
-    notion-utils "^4.8.2"
+    notion-utils "^4.8.6"
     prismjs "^1.20.0"
     rc-dropdown "^3.1.2"
     rc-menu "^8.5.2"
