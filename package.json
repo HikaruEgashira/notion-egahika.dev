@@ -35,7 +35,7 @@
     "react-notion-x": "4.9.7",
     "react-props-x": "0.0.2",
     "react-tweet-embed": "1.2.2",
-    "react-use": "17.2.4",
+    "react-use": "17.3.1",
     "use-dark-mode": "2.3.1"
   },
   "devDependencies": {
