@@ -55,7 +55,8 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     domains: ['pbs.twimg.com', 'images.unsplash.com', 'www.notion.so']
-  }
+  },
+  experimental: { esmExternals: true }
 }
 
 module.exports = withBundleAnalyzer(nextConfig)
