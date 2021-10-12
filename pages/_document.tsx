@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-script-in-document */
 import React from 'react'
 import Script from 'next/script'
 import Document, { Html, Head, Main, NextScript } from 'next/document'
