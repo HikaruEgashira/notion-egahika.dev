@@ -2,7 +2,6 @@ import * as React from 'react'
 import dynamic from 'next/dynamic'
 import cs from 'classnames'
 import { useRouter } from 'next/router'
-import { useLocation } from 'react-use'
 import useDarkMode from 'use-dark-mode'
 import { NextSeo, NextSeoProps } from 'next-seo'
 
@@ -47,7 +46,6 @@ export const NotionPage: React.FC<types.PageProps> = ({
   pageId
 }) => {
   const router = useRouter()
-  const location = useLocation()
   const darkMode = useDarkMode(true, { classNameDark: 'dark-mode' })
 
   if (router.isFallback) {
@@ -63,12 +61,9 @@ export const NotionPage: React.FC<types.PageProps> = ({
   // seo
   const title = getBlockTitle(block, recordMap) || site.name
   const description = getPageDescription(block, recordMap)
-  const isValidDomain = location.hostname !== site.domain
   const seoProps: NextSeoProps = {
     title,
-    description,
-    nofollow: isValidDomain,
-    noindex: isValidDomain
+    description
   }
 
   const siteMapPageUrl = mapPageUrl(site, recordMap, new URLSearchParams())
