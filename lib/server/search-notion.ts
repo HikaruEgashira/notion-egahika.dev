@@ -25,4 +25,4 @@ const searchNotionImpl = async (
     .then((res) => res.json())
 }
 
-export const searchNotion = pMemoize(searchNotionImpl, { maxAge: 10000 })
+export const searchNotion = pMemoize(searchNotionImpl)

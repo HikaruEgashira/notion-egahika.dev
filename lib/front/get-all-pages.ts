@@ -51,4 +51,4 @@ export const getAllPagesImpl = async (
   }
 }
 
-export const getAllPages = pMemoize(getAllPagesImpl, { maxAge: 60000 * 5 })
+export const getAllPages = pMemoize(getAllPagesImpl)
