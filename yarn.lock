@@ -3438,15 +3438,15 @@ notion-client@4.10.0:
     notion-utils "^4.10.0"
     p-map "^4.0.0"
 
-notion-types@4.8.2, notion-types@^4.8.2:
-  version "4.8.2"
-  resolved "https://registry.yarnpkg.com/notion-types/-/notion-types-4.8.2.tgz#b7b1182a595f1a526c3617578874667cdf7e52fe"
-  integrity sha512-WfmEv/3hgHkXtmmAL2rlS9i7MAdc2pIJZGoeqi8GnBK58XMW6zgkNFjrUBXJtaDiOjQ6nfVE/yepTj79LGhERw==
-
-notion-types@^4.10.0:
+notion-types@4.10.0, notion-types@^4.10.0:
   version "4.10.0"
   resolved "https://registry.yarnpkg.com/notion-types/-/notion-types-4.10.0.tgz#05c5006a021ab82f045c670e648a1749f2d1d9d1"
   integrity sha512-+vGbzPCdPzunn6W8U/ugKCv6dP52FXSBHlS4ZeOtm4YeHxeXtglBeUDjTSsUix8+/j+aennL/YxzeeFEB0m5pQ==
+
+notion-types@^4.8.2:
+  version "4.8.2"
+  resolved "https://registry.yarnpkg.com/notion-types/-/notion-types-4.8.2.tgz#b7b1182a595f1a526c3617578874667cdf7e52fe"
+  integrity sha512-WfmEv/3hgHkXtmmAL2rlS9i7MAdc2pIJZGoeqi8GnBK58XMW6zgkNFjrUBXJtaDiOjQ6nfVE/yepTj79LGhERw==
 
 notion-utils@4.8.6, notion-utils@^4.8.6:
   version "4.8.6"
