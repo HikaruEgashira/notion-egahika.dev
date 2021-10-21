@@ -25,7 +25,7 @@
     "next": "11.1.2",
     "next-seo": "^4.28.1",
     "next-transpile-modules": "8.0.0",
-    "notion-client": "4.9.7",
+    "notion-client": "4.10.0",
     "notion-types": "4.8.2",
     "notion-utils": "4.8.6",
     "p-map": "5.1.0",
