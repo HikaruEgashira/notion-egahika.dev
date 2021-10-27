@@ -24,7 +24,7 @@
     "lqip-modern": "1.2.0",
     "next": "11.1.2",
     "next-seo": "^4.28.1",
-    "next-transpile-modules": "8.0.0",
+    "next-transpile-modules": "9.0.0",
     "notion-client": "4.10.0",
     "notion-types": "4.10.0",
     "notion-utils": "4.10.0",
