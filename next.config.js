@@ -1,5 +1,4 @@
 const { ESBuildMinifyPlugin } = require('esbuild-loader')
-const WindiCSS = require('windicss-webpack-plugin').default
 
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true'
@@ -34,8 +33,6 @@ function UseEsbuildLoader(config, options) {
  **/
 const nextConfig = {
   webpack: (config, { webpack }) => {
-    config.plugins.push(new WindiCSS())
-
     config.plugins.push(
       new webpack.ProvidePlugin({
         React: 'react'
