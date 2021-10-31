@@ -1,10 +1,5 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const { transform } = require('windicss/helpers')
-
 module.exports = {
-  extract: {
-    include: ['./**/*.{html,js,jsx,ts,tsx}']
-  },
+  purge: ['./**/*.{html,js,jsx,ts,tsx}'],
   darkMode: 'class', // or 'media' or 'class'
   variants: {
     extend: {}
@@ -14,7 +9,7 @@ module.exports = {
       colors: require('daisyui/colors')
     }
   },
-  plugins: [transform('daisyui')],
+  plugins: [require('daisyui')],
   daisyui: {
     themes: [
       {
