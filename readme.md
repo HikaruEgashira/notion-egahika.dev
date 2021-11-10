@@ -1,4 +1,7 @@
 # egahika.dev
-## Template
 
-https://github.com/transitive-bullshit/nextjs-notion-starter-kit
+## 仕様技術
+
+- Next.js
+- react-notion-x
+- 
