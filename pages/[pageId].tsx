@@ -9,16 +9,15 @@ import { resolveNotionPage, getSite } from 'lib/front/resolve-notion-page'
 
 export const getStaticProps = async (context) => {
   const rawPageId = context.params.pageId as string
-
-  try {
-    if (rawPageId === 'sitemap.xml' || rawPageId === 'robots.txt') {
-      return {
-        redirect: {
-          destination: `/api/${rawPageId}`
-        }
+  if (['sitemap.xml', 'robots.txt'].includes(rawPageId)) {
+    return {
+      redirect: {
+        destination: `/api/${rawPageId}`
       }
     }
+  }
 
+  try {
     const props = await resolveNotionPage(rawPageId)
 
     return { props, revalidate: 10 }
@@ -37,7 +36,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     }
   }
 
-  const site = await getSite()
+  const site = getSite()
   const siteMaps = await getSiteMaps([site])
 
   const ret = {
