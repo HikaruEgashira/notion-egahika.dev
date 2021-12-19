@@ -2,6 +2,7 @@
   "scripts": {
     "dev": "NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
+    "export": "next export",
     "start": "next start",
     "deploy": "vercel --prod",
     "deps": "run-s deps:*",
