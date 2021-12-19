@@ -1,5 +1,5 @@
 import React from 'react'
-import { GetStaticPaths, NextPage } from 'next'
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { NotionPage } from 'components'
 
 import { isDev } from 'config'
@@ -7,20 +7,12 @@ import { PageProps } from 'types'
 import { getSiteMaps } from 'lib/front/get-site-maps'
 import { resolveNotionPage, getSite } from 'lib/front/resolve-notion-page'
 
-export const getStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps<PageProps> = async (context) => {
   const rawPageId = context.params.pageId as string
-  if (['sitemap.xml', 'robots.txt'].includes(rawPageId)) {
-    return {
-      redirect: {
-        destination: `/api/${rawPageId}`
-      }
-    }
-  }
 
   try {
     const props = await resolveNotionPage(rawPageId)
-
-    return { props, revalidate: 10 }
+    return { props }
   } catch (err) {
     return {
       notFound: true
@@ -53,8 +45,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return ret
 }
 
-const DynamicPage: NextPage<PageProps> = (props) => {
+const Page: NextPage<PageProps> = (props) => {
   return <NotionPage {...props} />
 }
 
-export default DynamicPage
+export default Page

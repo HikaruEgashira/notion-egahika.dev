@@ -19,7 +19,6 @@ import { getBlockTitle } from 'notion-utils'
 import { mapPageUrl } from 'lib/renderer/map-page-url'
 import { mapNotionImageUrl } from 'lib/renderer/map-image-url'
 import { getPageDescription } from 'lib/renderer/get-page-property'
-import { searchNotion } from 'lib/server/search-notion'
 import * as types from 'types'
 
 // components
@@ -83,8 +82,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
     showTableOfContents: isBlogPost,
     minTableOfContentsItems: 3,
     mapPageUrl: siteMapPageUrl,
-    mapImageUrl: mapNotionImageUrl,
-    searchNotion
+    mapImageUrl: mapNotionImageUrl
   }
 
   return (
