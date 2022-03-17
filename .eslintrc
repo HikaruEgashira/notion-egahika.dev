@@ -14,14 +14,7 @@
   },
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint"],
-  "extends": [
-    "next",
-    "next/core-web-vitals",
-    "plugin:@typescript-eslint/recommended",
-    "standard",
-    "standard-react",
-    "prettier"
-  ],
+  "extends": ["next", "next/core-web-vitals", "prettier"],
   "env": { "browser": true, "node": true },
   "rules": {
     "@typescript-eslint/no-explicit-any": 0,
@@ -33,8 +26,7 @@
     "react/jsx-handler-names": 0,
     "react/jsx-fragments": 0,
     "react/no-unused-prop-types": 0,
-    "import/export": 0,
-    "standard/no-callback-literal": 0
+    "import/export": 0
   },
   "ignorePatterns": ["next.config.js"]
 }

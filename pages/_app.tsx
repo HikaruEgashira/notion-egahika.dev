@@ -1,5 +1,4 @@
 // global styles shared across the entire site
-import 'windi.css'
 import 'styles/global.css'
 
 // core styles shared by all of react-notion-x (required)
@@ -35,10 +34,12 @@ import 'prismjs/components/prism-bash'
 import React from 'react'
 import { DefaultSeo } from 'next-seo'
 import SEO from 'config/next-seo.config'
+import Script from 'next/script'
 
 export default function App({ Component, pageProps }) {
   return (
     <>
+      <Script src='noflash.js' />
       <DefaultSeo {...SEO} />
       <Component {...pageProps} />
     </>

@@ -35,7 +35,6 @@ import { PageSocial } from './PageSocial'
 // dynamic components
 const notionX = (component: keyof typeof import('react-notion-x')) =>
   import('react-notion-x').then((notion) => notion[component])
-const Pdf = dynamic(() => notionX('Pdf'))
 const Equation = dynamic(() => notionX('Equation'))
 const Modal = dynamic(() => notionX('Modal'), { ssr: false })
 const Tweet = dynamic(() => import('react-tweet-embed'))
@@ -107,7 +106,6 @@ export const NotionPage: React.FC<types.PageProps> = ({
           collectionRow: CollectionRow,
           tweet: Tweet,
           modal: Modal,
-          pdf: Pdf,
           equation: Equation
         }}
         footer={

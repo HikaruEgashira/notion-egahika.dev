@@ -1,5 +1,4 @@
 import React from 'react'
-import Script from 'next/script'
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 
 export default class MyDocument extends Document {
@@ -14,8 +13,6 @@ export default class MyDocument extends Document {
         </Head>
 
         <body>
-          <Script src='noflash.js' />
-
           <Main />
 
           <NextScript />
