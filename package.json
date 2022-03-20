@@ -40,7 +40,7 @@
     "@next/bundle-analyzer": "11.1.4",
     "@types/classnames": "2.3.1",
     "@types/node": "16.11.26",
-    "@types/react": "17.0.40",
+    "@types/react": "17.0.41",
     "@typescript-eslint/eslint-plugin": "4.33.0",
     "@typescript-eslint/parser": "4.33.0",
     "autoprefixer": "10.4.4",
