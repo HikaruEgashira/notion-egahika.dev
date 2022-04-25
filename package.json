@@ -39,11 +39,11 @@
   "devDependencies": {
     "@next/bundle-analyzer": "11.1.4",
     "@types/classnames": "2.3.1",
-    "@types/node": "16.11.27",
+    "@types/node": "16.11.28",
     "@types/react": "17.0.44",
     "@typescript-eslint/eslint-plugin": "4.33.0",
     "@typescript-eslint/parser": "4.33.0",
-    "autoprefixer": "10.4.4",
+    "autoprefixer": "10.4.5",
     "babel-eslint": "10.1.0",
     "cross-env": "7.0.3",
     "esbuild-loader": "2.18.0",
