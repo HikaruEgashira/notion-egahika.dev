@@ -16,7 +16,7 @@
   "dependencies": {
     "@iconify/react": "3.2.1",
     "classnames": "2.3.1",
-    "daisyui": "2.14.3",
+    "daisyui": "2.15.0",
     "date-fns": "2.28.0",
     "got": "11.8.3",
     "lqip-modern": "1.2.0",
