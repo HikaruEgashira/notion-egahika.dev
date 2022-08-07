@@ -16,11 +16,11 @@
   "dependencies": {
     "@iconify/react": "3.2.2",
     "classnames": "2.3.1",
-    "daisyui": "2.20.0",
+    "daisyui": "2.22.0",
     "date-fns": "2.29.1",
     "got": "11.8.5",
     "lqip-modern": "1.2.0",
-    "next": "12.2.3",
+    "next": "12.2.4",
     "next-seo": "5.5.0",
     "next-transpile-modules": "8.0.0",
     "notion-client": "4.19.8",
