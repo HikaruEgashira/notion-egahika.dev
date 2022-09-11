@@ -37,30 +37,30 @@
     "use-dark-mode": "2.3.1"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "12.2.5",
+    "@next/bundle-analyzer": "12.3.0",
     "@types/classnames": "2.3.1",
-    "@types/node": "16.11.56",
-    "@types/react": "18.0.18",
-    "@typescript-eslint/eslint-plugin": "5.36.1",
-    "@typescript-eslint/parser": "5.36.1",
+    "@types/node": "16.11.58",
+    "@types/react": "18.0.19",
+    "@typescript-eslint/eslint-plugin": "5.36.2",
+    "@typescript-eslint/parser": "5.36.2",
     "autoprefixer": "10.4.8",
     "babel-eslint": "10.1.0",
     "cross-env": "7.0.3",
     "esbuild-loader": "2.20.0",
     "eslint": "8.23.0",
-    "eslint-config-next": "12.2.5",
+    "eslint-config-next": "12.3.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-config-standard": "17.0.0",
     "eslint-config-standard-react": "11.0.1",
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-promise": "6.0.1",
-    "eslint-plugin-react": "7.31.6",
+    "eslint-plugin-react": "7.31.8",
     "npm-run-all": "4.1.5",
     "postcss": "8.4.16",
     "prettier": "2.7.1",
     "tailwindcss": "3.1.8",
-    "typescript": "4.8.2"
+    "typescript": "4.8.3"
   },
   "private": true
 }
