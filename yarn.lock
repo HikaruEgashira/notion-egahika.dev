@@ -1139,10 +1139,10 @@ csstype@^3.0.2, csstype@^3.0.6:
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.0.6.tgz#865d0b5833d7d8d40f4e5b8a6d76aea3de4725ef"
   integrity sha512-+ZAmfyWMT7TiIlzdqJgjMb7S4f1beorDbWbsocyK4RaiqA5RTX3K14bnBWmmA9QEM0gRdsjyyrEmcyga8Zsxmw==
 
-daisyui@2.36.1:
-  version "2.36.1"
-  resolved "https://registry.yarnpkg.com/daisyui/-/daisyui-2.36.1.tgz#68dabd4f6e8e11cef86f6f1f8f6443b0da624cb5"
-  integrity sha512-l43iibOsfYAYfRMIsCfobSk4ygV2/OiQMX98zLFrafWt5zoSed7I4b4tRlKeP6xhnfVe6Xkv/84nFfapHI0B2A==
+daisyui@2.38.1:
+  version "2.38.1"
+  resolved "https://registry.yarnpkg.com/daisyui/-/daisyui-2.38.1.tgz#28a3303a1832f41e9804d76ec769335ac1248372"
+  integrity sha512-fHAVi+bT3H9QCNM7LNEH1EMPT0IwqufuW2RNhTJZorX3TftB1bWW437BVmSt70AZH72Xvp0mVxwVS3ChSKSj0w==
   dependencies:
     color "^4.2"
     css-selector-tokenizer "^0.8.0"
@@ -2974,10 +2974,10 @@ natural-compare@^1.4.0:
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=
 
-next-seo@5.11.1:
-  version "5.11.1"
-  resolved "https://registry.yarnpkg.com/next-seo/-/next-seo-5.11.1.tgz#256071c2c359003924c64678fbf6ac283680b66f"
-  integrity sha512-P18E5mDaUEvIK/hDlCLAl7w02Ew6a8m1E3KO3d+rIPKWPcBRMckcMzxkdFkafFqwHl4ygCLNCWlKWM9EKD3jIQ==
+next-seo@5.14.0:
+  version "5.14.0"
+  resolved "https://registry.yarnpkg.com/next-seo/-/next-seo-5.14.0.tgz#961376571d50c76c3d469c607900774065f62907"
+  integrity sha512-VpbVFXbDzy31qoKBH7xoxtzh+nDhEWYOBnlc18zkXmypRd3X9vxdwh7rlr3q2BQTfbfk2J/a6Y2vEb+oTcCW0w==
 
 next-transpile-modules@8.0.0:
   version "8.0.0"
