@@ -14,14 +14,14 @@
     "posttest": "run-s build"
   },
   "dependencies": {
-    "@iconify/react": "4.0.0",
+    "@iconify/react": "4.0.1",
     "classnames": "2.3.2",
     "daisyui": "2.42.1",
     "date-fns": "2.29.3",
     "got": "11.8.5",
     "lqip-modern": "2.0.0",
-    "next": "13.0.5",
-    "next-seo": "5.14.1",
+    "next": "13.0.6",
+    "next-seo": "5.15.0",
     "next-transpile-modules": "10.0.0",
     "notion-client": "4.19.8",
     "notion-types": "4.19.8",
