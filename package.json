@@ -23,7 +23,7 @@
     "next": "13.1.4",
     "next-seo": "5.15.0",
     "next-transpile-modules": "10.0.0",
-    "notion-client": "4.19.8",
+    "notion-client": "6.16.0",
     "notion-types": "4.19.8",
     "notion-utils": "4.19.8",
     "p-map": "4.0.0",
